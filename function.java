@@ -102,7 +102,7 @@ class function {
     }
 
     public static void copyDirectory(java.nio.file.Path source, java.nio.file.Path destination) throws IOException{
-        // complete this function.
+        // The function is under maintainance right now and will be ready in a while.
     }
     //...........................................................................................................
     public static void move(){
