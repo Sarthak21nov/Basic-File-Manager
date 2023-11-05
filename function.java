@@ -102,7 +102,15 @@ class function {
     }
     //..........................................................................................................
     public static void copyDirectory(java.nio.file.Path source, java.nio.file.Path destination) throws IOException{
-        
+        Files.walk(source)
+                .forEach(sourcePath -> {
+                    java.nio.file.Path targetPath = destination.resolve(source.relativize(sourcePath));
+                    try {
+                        Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException e) {
+                        System.out.println("An error occurred: " + e.getMessage());
+                    }
+                });
     }
     //...........................................................................................................
     public static void move(){
